@@ -1,0 +1,15 @@
+div {
+  background-color: lightskyblue;
+  height: 200px;
+  width: 500px;
+  margin: 15px;
+  padding: 40px;
+}
+
+.redclass {
+  background-color: darkred;
+}
+
+#special {
+  background-color: seagreen;
+}

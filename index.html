@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>back to school 🦖🦖🦖</title>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>welcome back to school🔥🔥</h1>
+
+    <fieldset>
+      <legend>FILTER THE VIEW</legend>
+      <input type="button" value="Oregon and Washington only" id="onw" />
+      <input type="button" value="Clear Filter" id="clear" />
+      <input type="button" value="Undo" id="undo" />
+    </fieldset>
+
+    <script
+      type="module"
+      src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"
+    ></script>
+
+    <tableau-viz
+      id="tableauViz"
+      src="https://public.tableau.com/views/Superstore_embedded_800x800/Overview"
+      toolbar="bottom"
+      hide-tabs
+      height="1000px"
+      width="600px"
+    >
+    </tableau-viz>
+
+    <script src="app.js"></script>
+  </body>
+</html>
