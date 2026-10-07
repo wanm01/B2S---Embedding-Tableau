@@ -1,15 +1,230 @@
-div {
-  background-color: lightskyblue;
-  height: 200px;
-  width: 500px;
-  margin: 15px;
-  padding: 40px;
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap");
+
+/* ==========================================================
+   Back to School: modern, whimsical, light green undertone
+   ========================================================== */
+
+:root {
+  --bg: #f1f9ee;
+  --bg-accent: #e0f3da;
+  --surface: #fbfff9;
+  --ink: #23402e;
+  --ink-soft: #5a7a65;
+  --green: #7fcf8f;
+  --green-deep: #3f9d5b;
+  --mint: #c9ecd3;
+  --butter: #fff0a8;
+  --peach: #ffd2c2;
+  --lilac: #dccdfa;
+  --radius: 22px;
+  --shadow: 0 10px 30px -12px rgba(63, 157, 91, 0.35);
+  --font-display: "Fredoka", "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-.redclass {
-  background-color: darkred;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-#special {
-  background-color: seagreen;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 3rem 1.25rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  font-family: var(--font-body);
+  color: var(--ink);
+  line-height: 1.6;
+
+  /* soft polka dots + gentle gradient wash */
+  background: radial-gradient(
+      circle at 12% 18%,
+      var(--butter) 0 6px,
+      transparent 7px
+    ),
+    radial-gradient(circle at 88% 12%, var(--peach) 0 8px, transparent 9px),
+    radial-gradient(circle at 80% 78%, var(--lilac) 0 7px, transparent 8px),
+    radial-gradient(circle at 8% 85%, var(--mint) 0 10px, transparent 11px),
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(127, 207, 143, 0.25),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 85% 90%,
+      rgba(201, 236, 211, 0.9),
+      transparent 50%
+    ),
+    linear-gradient(160deg, var(--bg) 0%, var(--bg-accent) 100%);
+  background-attachment: fixed;
+}
+
+/* ---------- Heading ---------- */
+
+h1 {
+  margin: 0;
+  max-width: 14ch;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.2rem, 7vw, 3.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--green-deep);
+  text-wrap: balance;
+
+  /* playful offset shadow */
+  text-shadow: 3px 3px 0 var(--butter), 6px 6px 0 rgba(127, 207, 143, 0.35);
+  transform: rotate(-1.5deg);
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: rotate(-1.5deg) translateY(0);
+  }
+  50% {
+    transform: rotate(1deg) translateY(-8px);
+  }
+}
+
+/* ---------- Filter panel ---------- */
+
+fieldset {
+  position: relative;
+  width: min(100%, 640px);
+  margin: 0;
+  padding: 1.75rem 1.5rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+
+  background: var(--surface);
+  border: 3px dashed var(--green);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+legend {
+  padding: 0.3rem 1rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  background: var(--butter);
+  border-radius: 999px;
+  transform: rotate(-2deg);
+  box-shadow: 0 3px 0 rgba(63, 157, 91, 0.25);
+}
+
+/* ---------- Buttons ---------- */
+
+input[type="button"] {
+  appearance: none;
+  cursor: pointer;
+  padding: 0.7rem 1.35rem;
+
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink);
+
+  background: var(--mint);
+  border: 2px solid var(--green-deep);
+  border-radius: 999px;
+  box-shadow: 0 4px 0 var(--green-deep);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+}
+
+input[type="button"]:hover {
+  background: var(--green);
+  transform: translateY(-3px) rotate(-1deg);
+  box-shadow: 0 7px 0 var(--green-deep);
+}
+
+input[type="button"]:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--green-deep);
+}
+
+input[type="button"]:focus-visible {
+  outline: 3px solid var(--lilac);
+  outline-offset: 3px;
+}
+
+/* each button gets its own little personality */
+#onw {
+  background: var(--butter);
+}
+#clear {
+  background: var(--peach);
+}
+#undo {
+  background: var(--lilac);
+}
+
+#onw:hover {
+  background: #ffe66d;
+}
+#clear:hover {
+  background: #ffb59b;
+}
+#undo:hover {
+  background: #c5b0f7;
+}
+
+/* ---------- Tableau embed ---------- */
+
+tableau-viz {
+  display: block;
+  max-width: 100%;
+  padding: 0.75rem;
+
+  background: var(--surface);
+  border: 3px solid var(--mint);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow), 8px 8px 0 var(--mint);
+  overflow: hidden;
+  transition: transform 0.25s ease;
+}
+
+tableau-viz:hover {
+  transform: translateY(-4px);
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 520px) {
+  body {
+    padding-top: 2rem;
+  }
+
+  input[type="button"] {
+    flex: 1 1 100%;
+  }
+}
+
+/* ---------- Respect reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  h1 {
+    animation: none;
+  }
+
+  input[type="button"],
+  tableau-viz {
+    transition: none;
+  }
 }
